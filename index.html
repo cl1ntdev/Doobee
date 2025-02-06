@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Document</title> -->
+     <link rel="stylesheet" href="./src/styles/styles.css">
+</head>
+<body>
+   <div class="game-container">
+
+    <!-- 1st -->
+        <div class="main-page-container">
+            <div class="title">
+                <h1 class="title-name">Doobee</h1>
+                <h5 class="title-author">orchestra</h5>
+            </div>
+            <button class="play-button btn">Play</button>
+        </div>
+
+
+        <!-- 2nd -->
+        <div class="game-choice">
+            <div class="game-choice-type">
+                <button class="game-button-default">Default</button>
+                <button disabled>Custom</button>
+            </div>
+            <div class="game-theme-container">
+                <button class="game-choice-button easy" val="easy">Easy</button>
+                <button class="game-choice-button medium" val="medium">Medium</button>
+                <button class="game-choice-button hard" val="hard">Hard</button>
+            </div>
+
+            
+
+        </div> 
+        <!-- game -->
+        <div class="game-ui">
+            <div class="game">
+                <img class="image-clue" src="" alt="a picture of a zebra">
+                <div class="fun-fact-clue">
+
+                </div>
+                <div class="letters-clue">
+                    <h1>AZBER</h1>
+                </div>
+                <div class="answer-area">
+                    <div class="answer">
+                        <h1>Answer Here</h1>
+                    </div>
+                    <button class="delete-answer-button"><-</button>
+                </div>
+                <button class="check-answer">Check</button>
+            </div>
+            <div class="stats">
+                <div class="timer">
+                    <div class="time-container">
+                        <h1 class="player-timer">Timer: loading... :D</h1>
+                    </div>
+                </div>
+                <div class="tries">
+                    <h1 class="player-tries">Health: loading :D </h1>
+                </div>
+                <div class="levels">
+                    <h1 class="player-level">Level loading :D</h1>
+                </div>
+            </div>
+        </div>
+
+   </div>
+
+   <script src="./src/scripts/global-functions.js"></script>
+   <script src="./src/components/game-objects.js" ></script>
+   <script src="./src/scripts/global-state.js"></script>
+   <script src="./src/scripts/game-logic.js"></script>
+   <script src="./src/scripts/index.js" type="module"></script>
+</body>
+</html>

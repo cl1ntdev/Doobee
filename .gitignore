@@ -1,0 +1,3 @@
+# Add node_modules since you have a Node.js project
+node_modules/
+dist/

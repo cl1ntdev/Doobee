@@ -1,0 +1,384 @@
+@import url(https://db.onlinewebfonts.com/c/4c19fc875e7ba1e6831129de3ab5ac0b?family=Retro+Gaming);
+body{
+    padding: 0;
+    margin: 0;
+}
+.game-container{
+
+    height: 563px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(176deg, rgba(2,0,36,1) 0%, rgba(4,7,30,1) 60%, rgba(13,69,118,1) 100%);
+    overflow: hidden;
+}
+/* From Uiverse.io by bhaveshxrawat */ 
+
+  
+
+/* Main page type shi */
+.main-page-container{
+    font-family: "Retro Gaming", sans-serif, Arial;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid yellowgreen; */
+    position: relative;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    width: 95%;
+    height: 90%;
+    h1{
+        font-size: 400%;
+    }
+    h5{
+        position: relative;
+        bottom: 50px;
+    }
+    /* play-button */
+    button{
+        width: 50%;
+        font-size: 270%;
+        font-family: "Retro Gaming", sans-serif, Arial;
+        position: relative;
+        bottom: 50px;
+        text-transform: uppercase;
+        text-decoration: none;
+        /* padding: 1em 2.5em; */
+        display: inline-block;
+        cursor: pointer;
+        border-radius: 6em;
+        transition: all 0.2s;
+        border: none;
+        font-family: inherit;
+        font-weight: 500;
+        color: black;
+        background-color: white;
+    }
+
+}
+  
+  .main-page-container * {
+    z-index: 1;
+    /* font-size: 2em; */
+  }
+  
+  .main-page-container::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    background-image: linear-gradient(180deg, rgb(0, 183, 255), rgb(255, 48, 255));
+    height: 200%;
+    animation: rotBGimg 7s linear infinite;
+    transition: all 0.2s linear;
+  }
+  
+  @keyframes rotBGimg {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .main-page-container::after {
+    content: '';
+    position: absolute;
+    background: linear-gradient(176deg, rgba(2,0,36,1) 0%, rgba(4,7,30,1) 60%, rgba(13,69,118,1) 100%);
+    ;
+    inset: 5px;
+    border-radius: 15px;
+  }  
+  /* .card:hover:before {
+    background-image: linear-gradient(180deg, rgb(81, 255, 0), purple);
+    animation: rotBGimg 3.5s linear infinite;
+  } */
+  
+
+
+
+/* From Uiverse.io by cssbuttons-io */ 
+
+  
+  .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 247, 247, 0.2);
+  }
+  
+  .btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(249, 242, 242, 0.2);
+  }
+  
+  .btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+  
+  .btn::after {
+    background-color: #fff;
+  }
+  
+  .btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+  }
+  
+
+
+
+.title{
+    position: relative;
+    bottom: 130px;
+    .title-name{
+        font-size: 590%;
+        background: -webkit-linear-gradient(#f1ff2f, hsl(185, 45%, 47%));
+        animation: textGrad 1s linear infinite ;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }.title-author{
+        color: white;
+    }
+
+}
+
+/* From Uiverse.io by e-coders */ 
+
+   
+
+@keyframes textGrad {
+    0% {
+        background: -webkit-linear-gradient(#f1ff2f, hsl(185, 45%, 47%));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    20% {
+        background: -webkit-linear-gradient(hsl(185, 45%, 47%), hsl(280, 60%, 70%));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    40% {
+        background: -webkit-linear-gradient(hsl(280, 60%, 70%), hsl(350, 75%, 60%));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    60% {
+        background: -webkit-linear-gradient(hsl(350, 75%, 60%), hsl(45, 90%, 60%));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    80% {
+        background: -webkit-linear-gradient(hsl(45, 90%, 60%), hsl(160, 70%, 50%));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    100% {
+        background: -webkit-linear-gradient(hsl(160, 70%, 50%), #f1ff2f);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
+
+/* Game after main page */
+.game-choice{
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    display: grid;
+    /* flex-direction: column; */
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto; /* Two rows */
+    .game-theme-container{
+        margin-top: 20px;
+        grid-column: span 2;
+        width: 730px;
+        height: 420px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        .game-choice-button{
+            border: none;
+            width: 50%;
+            height: 100%;
+            font-size: 200%;
+            font-family: "Retro Gaming", sans-serif, Arial;
+            position: relative;
+            margin: 1px;
+            /* bottom: 50px; */
+        }
+    }
+    .game-choice-type{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        button{
+            width: 100%;
+            height: 100%;
+            font-size: 200%;
+            font-family: "Retro Gaming", sans-serif, Arial;
+            position: relative;
+            margin: 1px;
+            /* bottom: 50px; */
+        }
+        .game-button-default{
+        
+        }
+
+    }
+}
+
+/* From Uiverse.io by gharsh11032000 */ 
+.game-choice-button {
+    cursor: pointer;
+    position: relative;
+    padding: 10px 24px;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    border: black;
+    border-radius: 34px;
+    background-color: transparent;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    overflow: hidden;
+  }
+  .game-choice-button:hover::before {
+    scale: 6;
+  }
+  
+  .easy::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: inherit;
+    scale: 0;
+    z-index: -1;
+    background-color: rgb(84, 196, 88);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  .medium::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: inherit;
+    scale: 0;
+    z-index: -1;
+    background-color: rgb(244, 247, 75);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  .hard::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: inherit;
+    scale: 0;
+    z-index: -1;
+    background-color: rgb(220, 88, 74);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  .game-choice-button:hover {
+    color: #212121;
+    scale: 1.1;
+    /* box-shadow: 0 0px 2  0px rgba(193, 163, 98,0.4); */
+  }
+  
+  .game-choice-button:active {
+    scale: 3;
+  }
+  
+  
+  
+
+.game-ui{
+    font-family: "Retro Gaming", sans-serif, Arial;
+    border: 1px solid black;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+    .game{
+        gap: 5px;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid green;
+        height: 100%;
+        width: 100%;
+        .answer-area{
+            width: 70%;
+            border: 1px solid red;
+            background: gray;
+            display: flex;
+            gap: 5px;
+            .answer{
+                align-items: center;
+                justify-content: center;
+                display: grid;
+                grid-template-columns: repeat(10,auto);
+                grid-template-rows: repeat(10,auto);
+            }
+            .current-answer{
+                margin: 5px;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        .letters-clue{
+            align-items: center;
+            justify-content: center;
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+            grid-template-rows: auto auto auto auto auto; /* Key change here */
+            cursor: pointer;
+        }
+        .letter-clue-base{
+            font-size: 120%;
+            font-family: "Retro Gaming", sans-serif, Arial;
+            border: 1px solid black;
+            margin: 5px;
+        }
+        
+
+    }
+    .stats{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        height: 100%;
+    }
+    
+}
+
+.image-clue {
+    width: 150px; /* Set your desired width */
+    height: 150px; /* Set your desired height */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+}
