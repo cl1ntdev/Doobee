@@ -18,6 +18,7 @@ var isAnswerCorrect = false;
 
 var isTurnOnTimer = false;
 
+var isFinishMode = true // checks if the game mode is done so we can randomize objects again
 
 
 
@@ -26,7 +27,10 @@ var isTurnOnTimer = false;
 const _gameState = (val) =>{ // main shit
     answer.innerHTML = ' ' // reset the previous answer in this bi
     loading_assets()
-    baseProps = props.sort(()=>Math.random() - 0.5)
+    if(isFinishMode){
+        baseProps = props.sort(()=>Math.random() - 0.5) // a
+        isFinishMode = false;
+    }
     glb.defineGame(val) // passs the mode type
     _show_statistics()
     _togglePointerEvents()
@@ -140,6 +144,7 @@ document.querySelector('.check-answer').addEventListener('click',()=>{
             congrats(glb.mode_type)//show congrats
 
             const reachLvlLimit = setInterval(() => {
+                isFinishMode = true
                 document.querySelector('.congr').remove()
                 menu()
                 clearInterval(reachLvlLimit)                
@@ -189,6 +194,8 @@ const menu = () =>{
 const _update_statistics = ()=>{
     if(!glb.isValidTries()){
         console.log('game over')
+        isFinishMode = true
+        _toggleGameUi()
         menu()
     }
     document.querySelector('.player-tries').innerText = `Health: ${glb.tries}x`
@@ -223,6 +230,8 @@ const _startTimer = (timerStart) =>{
         init--
         if(init<0 && !isAnswerCorrect){
             console.log('game over')
+            isFinishMode = true
+            _toggleGameUi()
             menu()
             clearInterval(timerFunct)
         }else if(isAnswerCorrect){
