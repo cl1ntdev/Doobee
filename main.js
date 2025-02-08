@@ -6,7 +6,9 @@ function createWindow() {
     width: 800,
     height: 600,
     resizable: false,
-    title:"Doobee"
+    title:"Doobee",
+    icon: path.join(__dirname, 'build/icon.ico') // Add this line
+
   });
   win.setMenuBarVisibility(false)
 //   win.setIcon()

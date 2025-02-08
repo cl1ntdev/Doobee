@@ -1,19 +1,40 @@
 {
   "name": "3vvia",
+  "productName": "cl1ntdev",
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start":"electron",
+    "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"npx electronmon .",
-    "type": "module"
+    "dev": "npx electronmon .",
+    "build": "electron-builder build --win --publish never",
+    "package": "electron-builder -w"
   },
   "keywords": [],
-  "author": "",
+  "author": "Clint",
   "license": "ISC",
   "description": "",
-
   "devDependencies": {
-    "electron": "^34.0.2"
+    "electron": "^34.0.2",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.cl1ntdev.Doobee",
+    "productName": "cl1ntdev",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    }
   }
 }
