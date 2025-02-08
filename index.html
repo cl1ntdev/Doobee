@@ -36,8 +36,9 @@
         </div> 
         <!-- game -->
         <div class="game-ui">
+            <!-- <div class="mode-answer-warn"></div> -->
             <div class="game">
-                <img class="image-clue" src="" alt="a picture of a zebra">
+                <img class="image-clue" src="" alt="No pictures for you">
                 <div class="fun-fact-clue">
 
                 </div>
@@ -46,9 +47,9 @@
                 </div>
                 <div class="answer-area">
                     <div class="answer">
-                        <h1>Answer Here</h1>
+                        
                     </div>
-                    <button class="delete-answer-button"><-</button>
+                    <button class="delete-answer-button"><</button>
                 </div>
                 <button class="check-answer">Check</button>
             </div>
@@ -68,7 +69,11 @@
         </div>
 
    </div>
-
+   <audio src="./src/assets/audio/correct-sfx.mp3" class="correct-sfx"></audio>
+   <audio src="./src/assets/audio/wrong-sfx.mp3" class="wrong-sfx"></audio>
+   <audio src="./src/assets/audio/game-bg-music.mp3" class="game-bg-music"></audio>
+   <audio src="./src/assets/audio/intro-bg-music.mp3" class="intro-bg-music"></audio>
+   <audio src="./src/assets/audio/bubble-click-sfx.mp3" class="bubble-click-sfx"></audio>
    <script src="./src/scripts/global-functions.js"></script>
    <script src="./src/components/game-objects.js" ></script>
    <script src="./src/scripts/global-state.js"></script>

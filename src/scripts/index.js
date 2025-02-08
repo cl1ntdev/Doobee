@@ -4,6 +4,7 @@
 
 
 document.querySelector('.play-button').addEventListener('click',()=>{
+    toggleAudio(bubbleClick,false)
     _toggleMainPage();
     _toggleGameChoice()
 
@@ -11,9 +12,11 @@ document.querySelector('.play-button').addEventListener('click',()=>{
 
 document.querySelectorAll(".game-choice-button").forEach(but=>{
     but.addEventListener('click',(e)=>{
+        console.log('test')
         var baseVal = e.target.getAttribute("val")
         _toggleGameChoice()
         _toggleGameUi();
+         toggleAudio(bubbleClick,false)
         _gameState(baseVal) // startgame here //gamelogic.js
         //loading here might be
 

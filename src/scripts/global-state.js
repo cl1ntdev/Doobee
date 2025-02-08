@@ -23,7 +23,7 @@ class Global {
         this.mode_type = modetype;
         switch(modetype){
             case 'easy':
-                this.level_max = 2
+                this.level_max = 5
                 this.timer = 30
                 break
             case 'medium':

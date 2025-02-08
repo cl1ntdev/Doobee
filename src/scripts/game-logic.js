@@ -1,5 +1,7 @@
 
 const glb = new Global(); //global in class because i want to
+toggleAudio(introBgMusic,true)
+
 var isGameOver = false;
 // timer, health, level
 //easy = 5 levels , medium 7 levels, hard 8 levels
@@ -10,7 +12,6 @@ var letters_clue = document.querySelector('.letters-clue')//div element
 var answer = document.querySelector('.answer')//div element
 var fun_fact = document.querySelector('.fun-fact-clue')
 var baseProps = props.sort(()=>Math.random() - 0.5) //randomize props
-
 // var randomNum = Math.floor(Math.random() * (baseProps[glb.level]["fun-fact"].length)) // use this to randomize fun fact in hard level
 
 var isAnswerCorrect = false;
@@ -20,7 +21,10 @@ var isTurnOnTimer = false;
 
 
 
+
+
 const _gameState = (val) =>{ // main shit
+    answer.innerHTML = ' ' // reset the previous answer in this bi
     loading_assets()
     baseProps = props.sort(()=>Math.random() - 0.5)
     glb.defineGame(val) // passs the mode type
@@ -64,7 +68,7 @@ const _mediumClues = (answer,limit)=>{
 
 const _createLetterClues =  (name) =>{
 
-    isTurnOnTimer = true;
+    isTurnOnTimer = true; //turn on the timer
     var i = 0;
     var clue =  glb.shuffleString(name)
     letters_clue.innerHTML = ' '
@@ -127,20 +131,53 @@ document.querySelector('.delete-answer-button').addEventListener('click',()=>{
 })
 
 document.querySelector('.check-answer').addEventListener('click',()=>{
-    if(glb.checkGameAnswer()){
+    if(glb.checkGameAnswer()){//checks the game answer
         if(!glb.checkLevelNext()){// comapres current level to max level of the mode
             //back to main menu
-            menu()
+
+            isTurnOnTimer = false //off the timer for congrats
+            _toggleGameUi()
+            congrats(glb.mode_type)//show congrats
+
+            const reachLvlLimit = setInterval(() => {
+                document.querySelector('.congr').remove()
+                menu()
+                clearInterval(reachLvlLimit)                
+            }, 5000);
             return;
         }
+        playAudio(correctSfx)
+        _addWarning(true)
         isAnswerCorrect = true
     }else{
+        playAudio(wrongSfx)
+        _addWarning(false)
         glb.updateTries(-1)
-        _update_statistics()
+        _update_statistics() 
         _wrongAnswerReset()
-        console.log('wrong answer') // reset everything if wrong, input and undisable button
+       // reset everything if wrong, input and undisable button
     }
 })
+
+const congrats = (val)=>{
+    var winner = document.createElement('div')
+    winner.className = 'congr'
+    winner.innerHTML = `
+        <h1 class="${val}">CONGRATUlATIONS FOR WINNING THE ${(val).toUpperCase()} MODE</h1>
+    `
+    game_container.appendChild(winner)
+}
+
+const _addWarning = (val)=>{
+    var warning = document.createElement('div')
+    warning.className = 'mode-answer-warn'
+    warning.style.background = (val ? 'green' : 'red')
+    game_ui_pane.appendChild(warning)
+    var warning_remover = setInterval(() => {
+        document.querySelector('.mode-answer-warn').remove()
+        clearInterval(warning_remover)
+    }, 300);
+}
 
 const menu = () =>{
     glb.reset()
@@ -176,7 +213,6 @@ const _startTimer = (timerStart) =>{
     var init = timerStart
 
     const timerFunct = setInterval(()=>{
-
         if(!isTurnOnTimer){
             clearInterval(timerFunct)
             return
@@ -190,22 +226,22 @@ const _startTimer = (timerStart) =>{
             menu()
             clearInterval(timerFunct)
         }else if(isAnswerCorrect){
-            isAnswerCorrect = false
+            isAnswerCorrect = false //reset amswer checker
             clearInterval(timerFunct)
             glb.level +=1
             glb.resetAnswer()
             answer.innerHTML = ' '
 
 
-            _gameState(glb.mode_type)
+            _gameState(glb.mode_type) //pass the same mode
         }
     },1000)
 }
 
 
+
 const _modePicker = () =>{
-    _toggleGameUi()
-    _toggleGameChoice()
+    _toggleGameChoice() //show game choice
 }
 
 
